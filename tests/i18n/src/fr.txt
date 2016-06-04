@@ -1,0 +1,4 @@
+fr {
+    testprice { "Hey {name} {amount,number,currency} !" }
+    test { "J'ai {0,number,integer} chiens !" }
+}

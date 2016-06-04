@@ -1,0 +1,9 @@
+.idea
+
+/vendor
+composer.lock
+
+/tests/output
+
+/tests/i18n/compiled/*
+!/tests/i18n/compiled/.keep
