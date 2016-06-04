@@ -69,12 +69,19 @@ class ResourceTranslator
     /**
      * @param string $locale
      *
+     * @throws \IntlException
      * @return \ResourceBundle
      */
     private function getResourceBundle($locale)
     {
         if (!isset($this->resourceBundles[$locale])) {
-            $this->resourceBundles[$locale] = new \ResourceBundle($locale, $this->resourcesDirectory, true);
+            $resourceBundle = \ResourceBundle::create($locale, $this->resourcesDirectory, true);
+
+            if ($resourceBundle === null) {
+                throw new \IntlException('Could not create resource bundle');
+            }
+
+            $this->resourceBundles[$locale] = $resourceBundle;
         }
 
         return $this->resourceBundles[$locale];
