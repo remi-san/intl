@@ -14,6 +14,7 @@ matrix:
 
 install:
   - travis_retry composer install --no-interaction --prefer-source
+  - make compile-resources
 
 before_script:
   - travis_retry wget https://scrutinizer-ci.com/ocular.phar
