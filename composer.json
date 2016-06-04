@@ -1,6 +1,7 @@
 {
     "name": "remi-san/intl",
     "description" : "Intl helper lib",
+    "license": "MIT",
     "keywords": [
         "Intl",
         "Helper"
@@ -14,6 +15,7 @@
         }
     ],
     "require": {
+        "php": ">5.5"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.5",
@@ -28,5 +30,10 @@
     },
     "autoload-dev": {
         "RemiSan\\Intl\\Test\\" : "tests/unit/"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
     }
 }
