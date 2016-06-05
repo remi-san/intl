@@ -26,22 +26,21 @@ class ResourceTranslator
     /**
      * Translate the $resource
      *
-     * @param string $locale
-     * @param string $resource
-     * @param array  $params
+     * @param string               $locale
+     * @param TranslatableResource $resource
      *
      * @throws \IntlException
      * @return string
      */
-    public function translate($locale, $resource, array $params = [])
+    public function translate($locale, TranslatableResource $resource)
     {
         $canonicalLocale = \Locale::canonicalize($locale);
         $messageFormatter = new \MessageFormatter(
             $canonicalLocale,
-            $this->retrievePattern($canonicalLocale, $resource)
+            $this->retrievePattern($canonicalLocale, $resource->getKey())
         );
 
-        return $messageFormatter->format($params);
+        return $messageFormatter->format($resource->getParameters());
     }
 
     /**
